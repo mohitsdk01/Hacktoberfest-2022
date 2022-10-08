@@ -21,6 +21,8 @@ P.S. Star ⭐ and Share this repository, if you had fun!!
 - Put the solution file in the correct difficulty folder.
 - Do NOT remove other content.
 - Try to keep pull requests small to minimize merge conflicts
+- Add the leetcode problem link in the PR.
+- Comment the PR link in the issue for which the PR has been raised.
 
 
 ## Getting Started:
