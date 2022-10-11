@@ -1,26 +1,31 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-        if(dividend==-2147483648 && divisor==-1)
+    
+        if(dividend==INT_MIN && divisor==-1) return INT_MAX;
+        if(dividend==INT_MIN && divisor==1) return INT_MIN;
+
+        
+
+        long int absdd = abs(dividend), abddv = abs(divisor);
+        
+     
+        int result=0;
+        while(abddv<=absdd) 
         {
-            return 2147483647;
+            long int sum=abddv, ct=1;
+            while(sum<=absdd-sum) 
+            {
+                sum+=sum;
+                ct+=ct;
+            }
+            result+=ct;
+            absdd-=sum;
         }
-        if(dividend>INT32_MAX)
-        {
-            dividend=INT32_MAX-1;
-        }
-        else if(divisor>INT32_MAX)
-        {
-            divisor=INT32_MAX-1;
-        }
-        else if(dividend<=INT32_MIN)
-        {
-            dividend=INT32_MIN;
-        }
-        else if(divisor<=INT32_MIN)
-        {
-            divisor=INT32_MIN;
-        }
-        return dividend/divisor;
+        
+if((dividend<0&&divisor>0) || (dividend>0&&divisor<0)) return -result;
+        
+        return result;
+          
     }
 };
